@@ -1,6 +1,5 @@
 const { MongoClient } = require("mongodb");
-const uri =
-  "mongodb+srv://user-taskmanager:cGZU7gDTMuA8hJa@cluster0.q2jgc.mongodb.net/taskmanager?retryWrites=true&w=majority";
+const uri = DB_URL;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 client.connect((err) => {
