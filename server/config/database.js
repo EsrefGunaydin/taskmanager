@@ -1,12 +1,16 @@
 const { MongoClient } = require("mongodb");
-const uri = DB_URL;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const mongoose = require("mongoose");
+require("dotenv").config();
 
-client.connect((err) => {
-  const collection = client.db("taskmanager").collection("tasks");
-  // perform actions on the collection object
-  console.log("connection established");
-  client.close();
-});
+const uri = process.env.DB_URL;
+const client = mongoose.connect(uri);
+
+// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+// client.connect((err) => {
+//   const collection = client.db("taskmanager").collection("tasks");
+//   // perform actions on the collection object
+//   client.close();
+// });
 
 module.exports = client;
