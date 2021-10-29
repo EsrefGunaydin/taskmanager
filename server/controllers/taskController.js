@@ -25,4 +25,21 @@ module.exports = {
       .then((data) => res.json({ data }))
       .catch((err) => res.json({ err }));
   },
+  deleteTask: (req, res) => {
+    Task.deleteOne({ _id: req.params.id })
+      .then((data) => res.json({ data }))
+      .catch((err) => res.json({ err }));
+  },
+
+  updateTask: (req, res) => {
+    console.log(req.body);
+    const { title } = req.body;
+    const newTitle = {
+      title,
+      created: new Date(),
+    };
+    Task.findOneAndUpdate({ _id: req.params.id }, newTitle, { new: true, runValidators: true })
+      .then((data) => res.json({ message: "success", data: data }))
+      .catch((err) => res.json({ message: "error", data: err }));
+  },
 };
