@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const PRIMARYCOLOR = "#282c34";
+
 export const Wrapper = styled.section`
   width: 600px;
   margin: 0 auto;
@@ -11,7 +13,7 @@ export const Input = styled.input`
   font-family: "Ubuntu Mono";
   padding: 15px;
   margin: 10px;
-  background: papayawhip;
+  background: #fff7eb;
   border: none;
   border-radius: 3px;
   ::placeholder {
@@ -35,11 +37,42 @@ export const Button = styled.button`
 
 export const Title = styled.h1`
   font-size: 18px;
-  font-family: "Ubuntu Mono";
+  font-family: "Courier New";
+  letter-spacing: 0;
   text-align: left;
-  color: #282c34;
+  color: ${PRIMARYCOLOR};
+`;
+
+export const Card = styled.div`
+  width: 580px;
+  min-height: 200px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin: 0 auto;
+  margin-top: 200px;
+`;
+
+export const Span = styled.span`
+  border: none;
+  color: ${PRIMARYCOLOR};
+  font-family: "Courier New";
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 0 5px 5px red;
+`;
+
+export const Container = styled.div`
+  min-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.5em;
   padding-left: 20px;
+  margin: 10px;
   background: white;
-  box-shadow: 2px 3px 3px 2px #adadad;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 `;
