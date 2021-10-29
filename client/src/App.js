@@ -17,13 +17,12 @@ function App() {
     <div className="App">
       <TaskInput
         allTasks={allTasks}
-        setTasks={setAllTasks}
+        setAllTasks={setAllTasks}
         task={task}
         setTask={setTask}
         buttonName={buttonName}
         setButtonName={setButtonName}
         taskId={taskId}
-        setAllTasks={setAllTasks}
         isActive={isActive}
         setIsActive={setIsActive}
       />

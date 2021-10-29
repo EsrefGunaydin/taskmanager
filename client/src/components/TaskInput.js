@@ -1,30 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input, Button, Wrapper, Card } from "./styles";
 import axios from "axios";
 
 const TaskInput = ({
-  tasks,
-  setTasks,
   task,
   setTask,
   buttonName,
   taskId,
   setButtonName,
+  allTasks,
   setAllTasks,
-  isActive,
   setIsActive,
 }) => {
-  const submitHandler = (e) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:5000/api/task", task)
-      .then((res) => {
-        setTasks([...tasks, res.data.data]);
-      })
-      .catch((err) => console.log(err));
-    setTask({ title: "" });
-  };
-
   const getAllTasks = () => {
     axios
       .get("http://localhost:5000/api/task")
@@ -32,6 +19,17 @@ const TaskInput = ({
         setAllTasks(response.data.data);
       })
       .catch((err) => console.log(err));
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5000/api/task", task)
+      .then((res) => {
+        setAllTasks([...allTasks, res.data.data]);
+      })
+      .catch((err) => console.log(err));
+    setTask({ title: "" });
   };
 
   const updateHandler = (e) => {
